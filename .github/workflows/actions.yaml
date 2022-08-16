@@ -24,6 +24,12 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: 3.8
+    - name: installpip
+      run: |
+          sudo apt install python3-pip
+    - name: install
+      run: |
+          pip install boto3
     - name: Verify 3.8
       run: python Python/test.py 3.8
     
