@@ -20,16 +20,10 @@ jobs:
 
        aws-region: us-east-1
 
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Terraform Init
-      uses: hashicorp/terraform-github-actions/init@v0.4.0
-      with:
-       role-to-assume: arn:aws:iam::282560401657:role/github-ivnc-test
-       role-session-name: github-ivnc-test
-       aws-region: us-east-1
-      env:
-        TF_ACTION_WORKING_DIR: 'Terraform'
+    - name: python install
+      uses: sudo apt update
+    - name: python
+      uses: sudo apt install python3
     - name: some commands
       uses: python test.py
       #env:
