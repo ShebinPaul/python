@@ -16,6 +16,6 @@ jobs:
         with:
           script: |
             import os
-            print("Directory contents:")
+            print("Directory contentss:")
             for f in os.listdir():
                 print(f)
