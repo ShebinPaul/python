@@ -1,21 +1,31 @@
-name: Run Script
-
+name: Example pipeline
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - main
+
+permissions:
+ id-token: write
+ contents: read  #This is required for actions/checkout@v2
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - uses: jannekem/run-python-script-action@v1
-        with:
-          script: |
-            import os
-            print("Directory contentss:")
-            for f in os.listdir():
-                print(f)
+  push:
+   runs-on: ubuntu-latest
+   steps:
+    - name: configureawscredentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+       role-to-assume: arn:aws:iam::282560401657:role/github-ivnc-test
+       role-session-name: github-ivnc-test
+
+       aws-region: us-east-1
+	- name: Checkout
+      uses: actions/checkout@v3		
+	- name: Run with setup-python 3.8
+      uses: ./
+      with:
+        python-version: 3.8
+    - name: Verify 3.8
+      run: python Python/test.py 3.8
+    
+        
