@@ -1,6 +1,10 @@
-import boto3
-import os
-os.system("aws s3 ls")
-s3 = boto3.resource('s3')
-for bucket in s3.buckets.all():
-    print(bucket.name)
+import mysql.connector
+mydb=mysql.connector.connect(host="localhost",user="ivnctestadmin",passwd="testadmin!202022")
+mycursor=mydb.cursor() #cursor object provides connection between sql database and sql queries
+if(mydb):
+    print("connection successful")
+else:
+    print("connection unsuccessful")
+mycursor.execute("show databases")
+for i in mycursor:
+    print(i)
