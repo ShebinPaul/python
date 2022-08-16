@@ -21,7 +21,7 @@ jobs:
        #role-session-name: github-ivnc-test
        #aws-region: us-east-1
     - name: Run with setup-python 3.8
-      uses: ./
+      uses: actions/setup-python@v3
       with:
         python-version: 3.8
     - name: Verify 3.8
