@@ -1,6 +1,6 @@
 import pymysql
-mydb=pymysql.connect('ivnc-test-rds.cprqglsudqxv.us-east-1.rds.amazonaws.com', 'ivnctestadmin', 'testadmin!202022')
-mycursor=mydb.cursor() #cursor object provides connection between sql database and sql queries
+mydb = pymysql.connect('ivnc-test-rds.cprqglsudqxv.us-east-1.rds.amazonaws.com', 'ivnctestadmin', 'testadmin!202022')
+mycursor = mydb.cursor() #cursor object provides connection between sql database and sql queries
 if(mydb):
     print("connection successful")
 else:
