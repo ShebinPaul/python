@@ -30,6 +30,9 @@ jobs:
     - name: install
       run: |
           pip install boto3
+    - name: installmysql
+      run: |
+          pip install mysql-connector-python
     - name: Verify 3.8
       run: python Python/test.py 3.8
     
