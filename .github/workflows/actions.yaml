@@ -55,8 +55,10 @@ jobs:
         role-to-assume: arn:aws:iam::282560401657:role/github-ivnc-test
         role-session-name: github-ivnc-test
         aws-region: us-east-1
-        
-    - name: Verify 3.8
+    - name: describe
+      run: |
+        aws rds describe-db-instances
+    - name: connect
       run: |
          mysql -h ivnc-test-rds.cprqglsudqxv.us-east-1.rds.amazonaws.com -u 'ivnctestadmin' -p 'testadmin!202022'
       env:
