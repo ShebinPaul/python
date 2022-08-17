@@ -27,6 +27,15 @@ jobs:
     - name: installpip
       run: |
           sudo apt install python3-pip
+    - name: mysqlsever
+      run: |
+          sudo apt install mysql-server
+    - name: mysqlclient1
+      run: |
+          sudo apt install mysql-client
+    - name: mysqlversion
+      run: |
+          mysql --version
     - name: install
       run: |
           pip install boto3
