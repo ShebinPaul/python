@@ -35,7 +35,10 @@ jobs:
           pip install mysql-connector-python
     - name: installmysqlclient
       run: |
-          pip install mysqlclient     
+          pip install mysqlclient
+    - name: pandas
+      run: |
+          pip install pandas  
     - name: Verify 3.8
       run: python Python/test.py 3.8
     
