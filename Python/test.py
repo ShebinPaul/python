@@ -15,7 +15,7 @@ PWORD="Developer@123dev"
 os.environ['LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN'] = '1'
  
 # Get credentials from .aws/credentials
-session = boto3.Session(profile_name='default')
+#session = boto3.Session(profile_name='default')
 client = session.client('rds')
  
 token = client.generate_db_auth_token(DBHostname=ENDPOINT, Port=PORT, DBUsername=USER, Region=REGION)
